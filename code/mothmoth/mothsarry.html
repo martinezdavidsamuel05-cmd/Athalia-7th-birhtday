@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our First Monthsary ❤️</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="main.css" />
+</head>
+<body class="antialiased">
+
+  <!-- ============================================= -->
+  <!-- CANVAS FOR AMBIENT PARTICLES (used everywhere) -->
+  <!-- ============================================= -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- ============================================= -->
+  <!-- 1. PASSWORD / LANDING GATE                     -->
+  <!-- ============================================= -->
+  <section id="gate" class="gate">
+    <div class="gate-bg"></div>
+    <div id="gate-hearts" class="floating-hearts-layer"></div>
+
+    <div class="gate-card glass-card" id="gate-card">
+      <p class="eyebrow">For the girl who makes my world more beautiful ❤️</p>
+      <h1 class="script-heading">Our First Monthsary</h1>
+      <p class="gate-subtitle">A little place on the internet, made just for you and memories of our first monthsarry.</p>
+
+      <div class="lock-icon" id="lock-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          <circle cx="12" cy="15" r="1.4" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </div>
+
+      <form id="password-form" class="password-form" autocomplete="off">
+        <input
+          type="password"
+          id="password-input"
+          class="password-input"
+          placeholder="Our monthsary date (MM/DD/YYYY)"
+          inputmode="numeric"
+        />
+        <button type="submit" class="enter-btn">
+          <span>Enter Our Story</span> ❤️
+        </button>
+      </form>
+
+      <p id="error-message" class="error-message">that's not quite the date, love — try again 💕</p>
+    </div>
+
+    <!-- Heart burst shown on correct password -->
+    <div id="success-burst" class="success-burst"></div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- MAIN SITE (hidden until unlocked)              -->
+  <!-- ============================================= -->
+  <div id="main-site" class="main-site">
+
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="navbar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">Happy 1st Monthsarry, Bub! <span class="heart-tiny">♡</span></a>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#hero" class="nav-link">Home</a></li>
+          <li><a href="#our-story" class="nav-link">Our Story</a></li>
+          <li><a href="#timeline" class="nav-link">Timeline</a></li>
+          <li><a href="#memories" class="nav-link">Memories</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#letter" class="nav-link">Letter</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- FLOATING HEARTS LAYER (global, subtle) -->
+    <div id="global-hearts" class="floating-hearts-layer"></div>
+
+    <!-- MUSIC PLAYER -->
+    <div id="music-player" class="music-player">
+      <div class="vinyl" id="vinyl">
+        <div class="vinyl-center"></div>
+      </div>
+      <div class="music-info">
+        <p class="music-title">Love Is</p>
+        <p class="music-sub">tap to play 🎵</p>
+      </div>
+      <button id="play-pause-btn" class="music-btn" aria-label="Play or pause music">▶</button>
+      <button id="mute-btn" class="music-btn" aria-label="Mute or unmute music">🔊</button>
+      <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.5" />
+      <audio id="bg-music" src="assets/Love Is (Live at The Cozy Cove) - The Ridleys.mp3" loop preload="none"></audio>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- 3. HERO SECTION                                -->
+    <!-- ============================================= -->
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div id="hero-hearts" class="floating-hearts-layer"></div>
+      <div class="hero-content">
+        <div class="big-heart" id="hero-heart">
+          <svg viewBox="0 0 32 29" width="72" height="66">
+            <path fill="currentColor" d="M23.6 0c-3 0-5.7 1.6-7.6 4.1C14.1 1.6 11.4 0 8.4 0 3.8 0 0 3.9 0 8.6c0 8.6 10.5 14.5 15.3 19.6.4.4 1 .4 1.4 0C21.5 23.1 32 17.2 32 8.6 32 3.9 28.2 0 23.6 0z"/>
+          </svg>
+        </div>
+        <p class="hero-eyebrow" id="hero-eyebrow">For Nunie</p>
+        <h1 class="hero-title">Happy First Monthsary,<br /><span class="script-inline">My Bub</span> ❤️</h1>
+        <p class="hero-subtitle">One month down, and I already can't wait for all the memories still waiting for us.</p>
+        <a href="#countdown" class="explore-btn">Explore Our Story <span class="arrow-bounce">↓</span></a>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 4. COUNTDOWN SECTION                           -->
+    <!-- ============================================= -->
+    <section id="countdown" class="section countdown-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Time together</p>
+        <h2 class="section-title">Counting Every Moment With You 💕</h2>
+
+        <div id="countdown-timer" class="countdown-timer">
+          <div class="countdown-block">
+            <span id="cd-days" class="countdown-number">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-block">
+            <span id="cd-hours" class="countdown-number">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-block">
+            <span id="cd-minutes" class="countdown-number">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-block">
+            <span id="cd-seconds" class="countdown-number">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+
+        <div id="countdown-complete" class="countdown-complete hidden">
+          <p class="celebrate-text">Happy Monthsary, My Bub! ❤️</p>
+          <div class="celebrate-heart">💗</div>
+        </div>
+
+        <p id="time-loving" class="time-loving-text"></p>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 5. OUR STORY                                   -->
+    <!-- ============================================= -->
+    <section id="our-story" class="section story-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">How it began</p>
+        <h2 class="section-title">A Little Story About Us 💗</h2>
+
+        <div class="story-card glass-card">
+          <div class="story-hearts">
+            <span>♡</span><span>♡</span><span>♡</span>
+          </div>
+          <!-- ✏️ EDIT ME: write your own story below -->
+          <p class="story-text">
+            Somehow, in this huge world, I found you. And from the moment you became part of my life,
+            ordinary days started feeling a little more special. Every message, every laugh, every quiet
+            moment together — it all led here, it led now that we're official and you are officially mine, to this first little milestone of ours. And I can't wait
+            for all the ones still to come. Happy first monthsary, my bub. I love you more than words can say. ❤️
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 6. TIMELINE                                    -->
+    <!-- ============================================= -->
+    <section id="timeline" class="section timeline-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Our Journey</p>
+        <h2 class="section-title">Our Little Timeline 🕰️❤️</h2>
+        <!-- Timeline items are generated from script.js -> timelineEvents array -->
+        <div id="timeline-container" class="timeline-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 7. PHOTO GALLERY                               -->
+    <!-- ============================================= -->
+    <section id="gallery" class="section gallery-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Our Little Moments</p>
+        <h2 class="section-title">Our Little Moments 📸💕</h2>
+        <!-- Gallery items generated from script.js -> galleryPhotos array -->
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="lightbox hidden">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close">&times;</button>
+      <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous">&#10094;</button>
+      <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+      <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next">&#10095;</button>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- 8. POLAROID MEMORY SECTION                     -->
+    <!-- ============================================= -->
+    <section id="polaroids" class="section polaroid-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Little Snapshots</p>
+        <h2 class="section-title">Snapshots We'll Keep Forever 🤍</h2>
+        <!-- Polaroids generated from script.js -> polaroidPhotos array -->
+        <div id="polaroid-container" class="polaroid-container"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 9. LOVE LETTER                                 -->
+    <!-- ============================================= -->
+    <section id="letter" class="section letter-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Just for You</p>
+        <h2 class="section-title">A Letter For You 💌</h2>
+
+        <div class="envelope-wrap">
+          <div id="envelope" class="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-letter" id="envelope-letter-paper">
+              <!-- ✏️ EDIT ME: write your own letter below -->
+              <p class="letter-salutation">My Bub,</p>
+              <p>Happy first monthsary.</p>
+              <p>
+                I just wanted to put into words what these past few weeks with you have meant to me.
+                You've made even the most ordinary days feel like something worth remembering, and
+                I find myself smiling at my phone way more often than I'd like to admit.
+                Time flies so fast to the point that we can't believe that it's already been a month since we officially became us. And yet, it feels like I've known you forever.
+                Wishing us to be more stronger and happier in the days to come. I can't wait to see what the future holds for us, and I know that as long as we're together, it will be nothing short of amazing.
+              </p>
+              <p>Thank you for being one of the most beautiful parts of my life, us until the end po, okieee?.</p>
+              <p>
+                I hope this is only the beginning of many more months, memories, adventures, laughs,
+                and moments together, to more days, month, and years with you. Mahal na mahal kitaa, my girlfriend!
+              </p>
+              <p>Mahal na mahal kita palagi and ikaw lang mamahalin forever, I lovee youuu so much, my one and only bubbyyy. You and I until the end!</p>
+              <p class="letter-love">I love you. ❤️</p>
+              <p class="letter-signature">Forever yours,<br /><span id="letter-signature-name">your boyfriend, Sampo.</span></p>
+            </div>
+            <div class="envelope-front"></div>
+            <div class="envelope-seal" id="envelope-seal">
+              <span>♡</span>
+            </div>
+          </div>
+          <button id="open-letter-btn" class="open-letter-btn">Open My Letter 💗</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 10. REASONS WHY I LOVE YOU                     -->
+    <!-- ============================================= -->
+    <section id="reasons" class="section reasons-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">Just a Few of Many</p>
+        <h2 class="section-title">Reasons Why I Love You ❤️</h2>
+        <!-- Reason cards generated from script.js -> reasons array -->
+        <div id="reasons-grid" class="reasons-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 11. FAVORITE MEMORIES                          -->
+    <!-- ============================================= -->
+    <section id="memories" class="section memories-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">the good stuff</p>
+        <h2 class="section-title">Moments I Want To Remember Forever ✨</h2>
+        <!-- Memory cards generated from script.js -> favoriteMemories array -->
+        <div id="memories-grid" class="memories-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 13. TAP THE HEART SURPRISE                     -->
+    <!-- ============================================= -->
+    <section id="tap-heart" class="section tap-heart-section">
+      <div class="section-inner reveal">
+        <p class="section-eyebrow">a little surprise</p>
+        <h2 class="section-title">Tap the Heart ❤️</h2>
+        <button id="tap-heart-btn" class="tap-heart-btn" aria-label="Tap the heart">❤️</button>
+        <p id="tap-heart-message" class="tap-heart-message"></p>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- 15. FINAL SECTION                              -->
+    <!-- ============================================= -->
+    <section id="final" class="section final-section">
+      <div class="final-bg"></div>
+      <div id="final-hearts" class="floating-hearts-layer"></div>
+      <div class="section-inner reveal final-inner">
+        <h2 class="final-title">And This Is Only<br />The Beginning... ❤️</h2>
+        <p class="final-subtitle">One month. Countless memories. And hopefully a lifetime more.</p>
+
+        <div class="final-glow-heart">💗</div>
+
+        <p class="final-happy">Happy First Monthsary, My Bub!. ❤️</p>
+        <p class="final-love">I loveee youuuuu, always.</p>
+
+        <!-- Secret surprise: hidden heart, click 5 times -->
+        <button id="secret-heart" class="secret-heart" aria-label="?">♡</button>
+
+        <button id="replay-btn" class="replay-btn">Replay Our Story ↻</button>
+      </div>
+    </section>
+
+    <!-- Secret surprise modal -->
+    <div id="secret-modal" class="secret-modal hidden">
+      <div class="secret-modal-card glass-card">
+        <button id="secret-close" class="secret-close" aria-label="Close">&times;</button>
+        <p class="secret-title">You found my secret message ❤️</p>
+        <p class="secret-text">
+          If you're reading this, I just want you to know that I love you more than words can explain.
+          Thank you for choosing me.
+        </p>
+        <div class="secret-heart-anim">💖</div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>made with ❤️ by <span id="footer-your-name">[Your Name]</span>, for <span id="footer-her-name">[Her Name]</span></p>
+    </footer>
+
+  </div>
+
+  <script src="logics.js"></script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Athalia's 7th Birthday — A Sweet Little Celebration in Candyland</title>
+<meta name="description" content="You're invited to Athalia's 7th Birthday — a sweet little celebration in Candyland!" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          candy: {
+            pink:    '#FFD9E8',
+            pinkdeep:'#FF8FB3',
+            lav:     '#E7DBFF',
+            purple:  '#C9A6FF',
+            blue:    '#CFE9FF',
+            mint:    '#C7F4E1',
+            yellow:  '#FFF2BE',
+            cream:   '#FFFBF3',
+            ink:     '#6B4E71',
+            inkdeep: '#4A2F52',
+            gold:    '#E3BE6E',
+          }
+        },
+        fontFamily: {
+          display: ['Fredoka', 'sans-serif'],
+          body: ['Nunito', 'sans-serif'],
+        },
+        boxShadow: {
+          candy: '0 20px 45px -15px rgba(198, 122, 173, 0.35)',
+          glow: '0 0 0 3px rgba(255,255,255,0.6), 0 0 30px rgba(255,143,179,0.45)',
+        },
+        borderRadius: {
+          blob: '42% 58% 65% 35% / 45% 40% 60% 55%',
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="design.css">
+</head>
+
+<body class="antialiased">
+
+<!-- ============================================================
+     HERO / ENTRANCE SCREEN
+     ============================================================ -->
+<section id="hero" aria-label="Birthday invitation entrance screen">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="bob absolute text-6xl md:text-7xl top-[12%] left-[8%]" style="--r:-8deg; animation-delay:.2s;">🍭</div>
+    <div class="bob absolute text-5xl md:text-6xl top-[20%] right-[10%]" style="--r:10deg; animation-delay:1.1s;">🧁</div>
+    <div class="bob absolute text-4xl md:text-5xl bottom-[18%] left-[14%]" style="--r:6deg; animation-delay:.6s;">💗</div>
+    <div class="bob absolute text-5xl md:text-6xl bottom-[12%] right-[14%]" style="--r:-10deg; animation-delay:1.6s;">⭐</div>
+    <div class="bob absolute text-3xl md:text-4xl top-[45%] left-[4%]" style="--r:4deg; animation-delay:.9s;">☁️</div>
+    <div class="bob absolute text-3xl md:text-4xl top-[40%] right-[5%]" style="--r:-4deg; animation-delay:1.4s;">🍬</div>
+  </div>
+
+  <div class="hero-card glass relative max-w-xl w-[92%] mx-auto rounded-[2.5rem] px-8 py-12 md:px-14 md:py-16 text-center shadow-candy">
+    <p class="font-display tracking-[0.35em] text-candy-pinkdeep text-xs md:text-sm mb-4">YOU'RE INVITED</p>
+    <h1 class="hero-title leading-tight">
+      <span class="block text-4xl md:text-6xl text-candy-inkdeep">ATHALIA'S</span>
+      <span class="block text-5xl md:text-7xl mt-1 bg-gradient-to-r from-candy-pinkdeep via-candy-purple to-candy-gold bg-clip-text text-transparent">7TH BIRTHDAY</span>
+    </h1>
+    <p class="hero-subtitle italic text-candy-ink/80 mt-5 text-base md:text-lg">"A Sweet Little Celebration in Sanrio Candyland"</p>
+
+    <button id="enter-btn" class="candy-seal mt-9 group" aria-label="Enter the Candyland and start the celebration">
+      <span class="px-8 py-4 md:px-10 md:py-5 flex items-center gap-2 font-display text-candy-inkdeep text-base md:text-lg group-hover:scale-[1.03] group-active:scale-95 transition-transform">
+        🍬 ENTER THE CANDYLAND 🍬
+      </span>
+    </button>
+    <p class="text-xs text-candy-ink/60 mt-4">(Come and join us in Athalia's special celebration ✨)</p>
+  </div>
+</section>
+
+<div id="particle-field" aria-hidden="true"></div>
+
+<audio id="bg-music" loop preload="none">
+  <source src="assets/Isn't She Lovely (Acoustic Guitar).mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-toggle" class="hidden fixed bottom-6 right-6 z-50 candy-seal" aria-label="Toggle background music" aria-pressed="false">
+  <span class="w-14 h-14 flex items-center justify-center">
+    <svg id="music-icon-on" class="w-6 h-6 text-candy-pinkdeep" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 3.75a.75.75 0 0 0-1.264-.546L5.203 7H2.667a.75.75 0 0 0-.7.48A6.985 6.985 0 0 0 1.5 10c0 .887.165 1.737.468 2.52.111.29.39.48.7.48h2.535l4.033 3.796a.75.75 0 0 0 1.264-.546V3.75ZM16.45 5.05a.75.75 0 0 0-1.06 1.06 5.5 5.5 0 0 1 0 7.78.75.75 0 1 0 1.06 1.06 7 7 0 0 0 0-9.9ZM14.329 7.172a.75.75 0 0 0-1.061 1.06 2.5 2.5 0 0 1 0 3.536.75.75 0 1 0 1.06 1.06 4 4 0 0 0 0-5.656Z"/>
+    </svg>
+    <svg id="music-icon-off" class="hidden w-6 h-6 text-candy-ink/50" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 3.75a.75.75 0 0 0-1.264-.546L5.203 7H2.667a.75.75 0 0 0-.7.48A6.985 6.985 0 0 0 1.5 10c0 .887.165 1.737.468 2.52.111.29.39.48.7.48h2.535l4.033 3.796a.75.75 0 0 0 1.264-.546V3.75ZM17.78 9.22a.75.75 0 1 0-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 1 0 1.06-1.06L20.56 12l1.72-1.72a.75.75 0 0 0-1.06-1.06l-1.72 1.72-1.72-1.72Z"/>
+    </svg>
+  </span>
+</button>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<header id="navbar" class="hidden fixed top-4 inset-x-0 z-50 px-4">
+  <nav class="glass max-w-4xl mx-auto rounded-full px-5 py-3 flex items-center justify-between shadow-candy" aria-label="Main navigation">
+    <a href="#hero-anchor" class="font-display text-candy-inkdeep text-lg flex items-center gap-1">🍭 Athalia's 7th</a>
+
+    <ul class="hidden md:flex items-center gap-6 font-display text-sm text-candy-ink">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#details" class="nav-link">Details</a></li>
+      <li><a href="#traditions" class="nav-link">Traditions</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#venue" class="nav-link">Venue</a></li>
+      <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+    </ul>
+
+    <button id="menu-btn" class="md:hidden text-2xl text-candy-inkdeep" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+  </nav>
+
+  <ul id="mobile-menu" class="md:hidden glass max-w-xs mx-auto mt-2 rounded-3xl overflow-hidden max-h-0 opacity-0 flex flex-col text-center font-display text-candy-ink" aria-label="Mobile navigation">
+    <li><a href="#home" class="block px-6 py-3 nav-link">Home</a></li>
+    <li><a href="#details" class="block px-6 py-3 nav-link">Details</a></li>
+    <li><a href="#traditions" class="block px-6 py-3 nav-link">Traditions</a></li>
+    <li><a href="#gallery" class="block px-6 py-3 nav-link">Gallery</a></li>
+    <li><a href="#venue" class="block px-6 py-3 nav-link">Venue</a></li>
+    <li><a href="#rsvp" class="block px-6 py-3 nav-link">RSVP</a></li>
+  </ul>
+</header>
+
+<main id="site-main" class="hidden">
+  <div id="hero-anchor"></div>
+
+  <!-- ============================================================
+       HOME
+       ============================================================ -->
+  <section id="home" class="relative pt-36 pb-24 px-6 text-center overflow-hidden">
+    <div aria-hidden="true" class="absolute -top-8 -left-8 text-7xl bob opacity-70" style="--r:-10deg;">☁️</div>
+    <div aria-hidden="true" class="absolute -top-4 -right-4 text-6xl bob opacity-70" style="--r:8deg; animation-delay:.8s;">☁️</div>
+
+    <p class="reveal font-display text-candy-pinkdeep tracking-widest text-xs md:text-sm mb-3">WELCOME TO</p>
+    <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-5">Athalia's Candyland! 🍬</h2>
+    <p class="reveal max-w-xl mx-auto text-candy-ink/80 text-base md:text-lg leading-relaxed">
+      Come join us for a sweet and magical celebration as Athalia turns <strong class="text-candy-pinkdeep">SEVEN</strong>! Get ready for a day filled with laughter, colorful surprises, delicious treats, and unforgettable memories.
+    </p>
+
+    <div class="reveal flex justify-center gap-4 mt-8 text-3xl" aria-hidden="true">
+      <span class="bob" style="--r:-6deg;">💗</span>
+      <span class="bob" style="animation-delay:.4s;">⭐</span>
+      <span class="bob" style="--r:6deg; animation-delay:.8s;">🍭</span>
+      <span class="bob" style="animation-delay:1.2s;">✨</span>
+    </div>
+
+    <a href="#details" class="reveal candy-seal inline-flex mt-10">
+      <span class="px-7 py-3 font-display text-candy-inkdeep hover:scale-105 transition-transform inline-block">Explore the Invitation ↓</span>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       DETAILS
+       ============================================================ -->
+  <section id="details" class="relative py-20 px-6 bg-white/40">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-4">The Sweet Details</h2>
+      <p class="reveal text-candy-ink/70 mb-12">Mark your calendars — here's everything you need to know!</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="reveal lift-card glass rounded-[2rem] p-8 relative">
+          <div class="text-5xl mb-4" aria-hidden="true">🎂</div>
+          <h3 class="font-display text-xl text-candy-pinkdeep mb-2">The Party</h3>
+          <p class="font-display text-lg text-candy-inkdeep"> Saturday, September 12, 2026 </p>
+          <p class="text-sm text-candy-ink/70">The celebration will begin at 10:00 AM and end at 1:00 PM.</p>
+        </div>
+        <div class="reveal lift-card glass rounded-[2rem] p-8 relative">
+          <div class="text-5xl mb-4" aria-hidden="true">👗</div>
+          <h3 class="font-display text-xl text-candy-purple mb-2">DRESS CODE</h3>
+          <p class="font-display text-lg text-candy-inkdeep mb-2">Pastel Candy Colors</p>
+          <p class="text-sm text-candy-ink/70">Wear whatever makes you comfortable in sweet, candy-colored pastels—blue, pink, purple, teal, or yellow! 🍭.</p>
+
+        <div class="flex items-center justify-center gap-3 mt-5" role="img" aria-label="Dress code color palette: pink, lavender, baby blue, mint, and gold">
+          <span class="w-6 h-6 rounded-full bg-candy-pink ring-2 ring-white shadow-sm"></span>
+          <span class="w-6 h-6 rounded-full bg-candy-purple ring-2 ring-white shadow-sm"></span>
+          <span class="w-6 h-6 rounded-full bg-candy-blue ring-2 ring-white shadow-sm"></span>
+          <span class="w-6 h-6 rounded-full bg-candy-mint ring-2 ring-white shadow-sm"></span>
+          <span class="w-6 h-6 rounded-full bg-candy-yellow ring-2 ring-white shadow-sm"></span>
+        </div>
+        </div>
+        <div class="reveal lift-card glass rounded-[2rem] p-8 relative">
+          <div class="text-5xl mb-4" aria-hidden="true">📍</div>
+          <h3 class="font-display text-xl text-candy-gold mb-2">VENUE</h3>
+          <p class="font-display text-lg text-candy-inkdeep"> Kidzoona, SM City Sta. Mesa, Magsaysay Blvd, Quezon City, Metro Manila</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="traditions" class="relative py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-4">Sweet Traditions 🍭</h2>
+      <p class="reveal text-candy-ink/70 mb-14">Seven special people join Athalia in each sweet tradition.</p>
+
+      <div class="space-y-16">
+
+        <div class="reveal">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="text-4xl" aria-hidden="true">🎀</span>
+            <div class="text-left">
+              <h3 class="font-display text-xl md:text-2xl text-candy-inkdeep">7 Dances</h3>
+              <p class="text-sm text-candy-ink/60">Seven sweet dances</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Kuya Jairus</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Kuya Mikas</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Kuya Chairon</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Ading Malik</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Wowo Jess</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Daddy Ekel</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-pink/25">
+              <span class="text-lg" aria-hidden="true">✨</span>
+              <p class="font-display text-xs text-candy-inkdeep">Daddy Jeriel</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-candy-pinkdeep/70 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="text-4xl" aria-hidden="true">🕊️</span>
+            <div class="text-left">
+              <h3 class="font-display text-xl md:text-2xl text-candy-inkdeep">7 Bible Verses</h3>
+              <p class="text-sm text-candy-ink/60">God's Guidance</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Mama Mariam</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Nanay Tekla</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Tita Xandrea</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Tita Chloe</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Tita Nunie</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Tita Jam</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-mint/25">
+              <span class="text-lg" aria-hidden="true">⭐</span>
+              <p class="font-display text-xs text-candy-inkdeep">Mommy Jaja</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-emerald-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <span class="text-4xl" aria-hidden="true">💌</span>
+            <div class="text-left">
+              <h3 class="font-display text-xl md:text-2xl text-candy-inkdeep">7 Wishes</h3>
+              <p class="text-sm text-candy-ink/60">Messages for Athalia</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Amber</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Julia</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Caira</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Brianna</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Teacher Mel</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Teacher Sai</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+            <div class="tradition-box group relative w-24 sm:w-28 aspect-square rounded-2xl glass flex flex-col items-center justify-center gap-1 bg-candy-blue/25">
+              <span class="text-lg" aria-hidden="true">💕</span>
+              <p class="font-display text-xs text-candy-inkdeep">Teacher Jen</p>
+              <div class="absolute inset-0 rounded-2xl ring-2 ring-transparent transition-all duration-300 group-hover:ring-sky-300/80 group-hover:shadow-glow pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="quote" class="relative py-20 px-6 overflow-hidden">
+    <div aria-hidden="true" class="absolute top-6 left-1/2 -translate-x-1/2 text-6xl opacity-20 bob" style="--r:-4deg;">🍭</div>
+    <div class="reveal max-w-2xl mx-auto text-center relative">
+      <span class="font-display text-6xl text-candy-pinkdeep/40 leading-none block mb-2" aria-hidden="true">&ldquo;</span>
+      <p class="font-display text-2xl md:text-3xl text-candy-inkdeep leading-snug">
+        A little girl with big dreams becomes a woman with a vision.
+      </p>
+      <p class="mt-4 text-sm tracking-widest text-candy-ink/60 font-display">—  QUOTE FOR THE BIRTHDAY GIRL —</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALLERY
+       ============================================================ -->
+  <section id="gallery" class="relative py-20 px-6 bg-white/40">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-4">Candyland Memories 📸</h2>
+      <p class="reveal text-candy-ink/70 mb-12">Click a photo for a closer look!</p>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <button class="reveal gallery-card lift-card group relative rounded-[2rem] overflow-hidden shadow-candy aspect-square bg-gradient-to-br from-candy-pink via-candy-lav to-candy-blue focus-visible:outline focus-visible:outline-4"
+                data-full="assets/photo1.jpg" aria-label="Open memory photo 1 in full screen">
+          <img src="assets/Athalia1.png" alt="A candyland party memory" class="gallery-img absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+          <span class="sparkle-hover absolute top-3 right-3 text-2xl">✨</span>
+          <span class="absolute inset-0 flex items-center justify-center font-display text-candy-inkdeep/70 text-sm pointer-events-none gallery-fallback-label"></span>
+        </button>
+
+        <button class="reveal gallery-card lift-card group relative rounded-[2rem] overflow-hidden shadow-candy aspect-square bg-gradient-to-br from-candy-mint via-candy-blue to-candy-purple focus-visible:outline focus-visible:outline-4"
+                data-full="assets/photo2.jpg" aria-label="Open memory photo 2 in full screen">
+          <img src="assets/Athalia2.jpg" alt="A candyland party memory" class="gallery-img absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+          <span class="sparkle-hover absolute top-3 right-3 text-2xl">✨</span>
+          <span class="absolute inset-0 flex items-center justify-center font-display text-candy-inkdeep/70 text-sm pointer-events-none gallery-fallback-label"></span>
+        </button>
+
+        <button class="reveal gallery-card lift-card group relative rounded-[2rem] overflow-hidden shadow-candy aspect-square bg-gradient-to-br from-candy-yellow via-candy-pink to-candy-purple focus-visible:outline focus-visible:outline-4"
+                data-full="assets/photo3.jpg" aria-label="Open memory photo 3 in full screen">
+          <img src="assets/Athalia3.jpg" alt="A candyland party memory" class="gallery-img absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+          <span class="sparkle-hover absolute top-3 right-3 text-2xl">✨</span>
+          <span class="absolute inset-0 flex items-center justify-center font-display text-candy-inkdeep/70 text-sm pointer-events-none gallery-fallback-label"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="hidden fixed inset-0 z-[60] bg-candy-inkdeep/80 backdrop-blur-sm items-center justify-center p-6" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white text-3xl" aria-label="Close photo viewer">✕</button>
+    <img id="lightbox-img" src="" alt="Full size party memory" class="max-h-[85vh] max-w-[92vw] rounded-2xl shadow-2xl">
+  </div>
+
+  <!-- ============================================================
+       VENUE
+       ============================================================ -->
+<section id="venue" class="relative py-20 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+
+    <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-4">
+      Find Us in Candyland 📍
+    </h2>
+
+    <p class="reveal font-display text-lg text-candy-pinkdeep mb-1">
+      Kidzooona SM City Sta. Mesa
+    </p>
+
+    <p class="reveal text-candy-ink/70 mb-2">
+      4th Level, SM City Sta. Mesa, Magsaysay Blvd, Quezon City, Metro Manila
+    </p>
+
+    <p class="reveal max-w-md mx-auto text-candy-ink/70 mb-10">
+      A dreamy candy-colored space perfect for balloons, bubbles, and birthday magic.
+    </p>
+
+    <!-- ============================================================
+         GOOGLE MAP
+         ============================================================ -->
+    <div class="reveal glass rounded-[2rem] p-4 shadow-candy">
+      <div class="rounded-[1.5rem] overflow-hidden aspect-video">
+
+        <iframe
+          title="Kidzooona SM City Sta. Mesa location map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.872741009472!2d121.01625407487272!3d14.604361285882408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b75586c48acb%3A0x85d315a1e94c1577!2sKidzooona%20SM%20City%20Sta.%20Mesa!5e1!3m2!1sen!2sph!4v1786919939562!5m2!1sen!2sph"
+          class="w-full h-full border-0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         OPEN GOOGLE MAPS BUTTON
+         ============================================================ -->
+    <a
+      id="maps-link"
+      href="https://www.google.com/maps/search/?api=1&query=Kidzooona+SM+City+Sta.+Mesa"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="reveal candy-seal inline-flex mt-8"
+    >
+      <span class="px-7 py-3 font-display text-candy-inkdeep hover:scale-105 transition-transform inline-block">
+        📍 Open in Google Maps
+      </span>
+    </a>
+
+  </div>
+</section>
+
+  <!-- ============================================================
+       RSVP
+       ============================================================ -->
+  <section id="rsvp" class="relative py-20 px-6 bg-white/40">
+    <div class="max-w-lg mx-auto text-center">
+      <h2 class="reveal font-display text-4xl md:text-5xl text-candy-inkdeep mb-4">Will You Join the Sweet Celebration? 💕</h2>
+      <p class="reveal text-candy-ink/70 mb-10">We'd love to know if you can make it! Tap below to fill out our RSVP form.</p>
+
+      <div class="reveal glass rounded-[2rem] p-10 shadow-candy">
+        <div class="text-5xl mb-4" aria-hidden="true">💌</div>
+        <a id="rsvp-form-link" href="https://forms.gle/uA2Z64RzB5qwLtFD6" target="_blank" rel="noopener noreferrer" class="candy-seal inline-flex">
+          <span class="px-8 py-4 font-display text-candy-inkdeep hover:scale-105 transition-transform inline-block">Send RSVP 💌</span>
+        </a>
+        <p class="text-xs text-candy-ink/60 mt-4">Opens our RSVP form in a new tab</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-10 text-sm text-candy-ink/60 font-body">
+    Made with 💗 for Athalia's 7th Birthday
+  </footer>
+</main>
+
+<script src="lgc.js"></script>
+</body>
+</html>

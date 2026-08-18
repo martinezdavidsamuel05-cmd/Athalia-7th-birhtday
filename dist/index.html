@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queenie ✦ 18 | Enchanted Debut</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MonteCarlo&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DACuVmgP.css">
+</head>
+<body>
+    
+    <!-- BACKGROUND PARTICLES -->
+    <div class="particles-container" id="particles-js"></div>
+    
+    <!-- MUSIC CONTROL -->
+    <div class="music-toggle" id="music-btn">
+        <i class="fas fa-music" id="music-icon"></i>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h4 class="intro-text" data-aos="fade-down">You are cordially invited to</h4>
+            <h1 class="title" data-aos="fade-up" data-aos-delay="200">Queenie<span class="age">✦ 18</span></h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="400">An Enchanted Evening of Beauty, Grace & Celebration</p>
+            
+            <a href="#details" class="btn-enter" data-aos="fade-up" data-aos-delay="600">
+                <span>Enter Invitation</span>
+            </a>
+        </div>
+        
+        <div class="scroll-down" data-aos="fade-in" data-aos-delay="1000">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <!-- Hidden Audio - Using royalty free piano music -->
+       <audio id="bg-music" loop preload="auto">
+    <source src="/assets/APHRODITE%20_%20THE%20RIDLEYS%20_%20KARAOKE%20%20MINUS%20ONE%20(1)-CzKilTgP.mp3" type="audio/mpeg">
+       </audio>
+    </section>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Queenie<span> ✦ 18</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#countdown"><i class="far fa-clock"></i> Countdown</a></li>
+                <li><a href="#details"><i class="fas fa-calendar-check"></i> Details</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#venue"><i class="fas fa-map-marker-alt"></i> Venue</a></li>
+                <li><a href="#roses"><i class="fas fa-seedling"></i> Tradition</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- COUNTDOWN SECTION -->
+    <section id="countdown" class="section">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">The Enchanted Day Begins In</h2>
+            <div class="countdown-wrapper" data-aos="zoom-in">
+                <div class="time-box">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Mins</span>
+                </div>
+                <div class="time-box">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Secs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS SECTION -->
+    <section id="details" class="section">
+        <div class="container">
+            <h2 class="section-heading" data-aos="fade-up">Celebration Details</h2>
+            <div class="details-grid">
+                <div class="detail-card" data-aos="fade-right">
+                    <div class="icon"><i class="fas fa-glass-cheers"></i></div>
+                    <h3>The Soiree</h3>
+                    <p class="date">Saturday, July 4, 2026.</p>
+                    <p class="time">4:00 PM.</p>
+                </div>
+                <div class="detail-card" data-aos="fade-up">
+                    <div class="icon"><i class="fas fa-map-pin"></i></div>  
+                    <h3>The Venue</h3>
+                    <p class="venue-name">De Guzman's Private Resort.</p>
+                    <p class="address">Pulilan, Bulacan.</p>
+                </div>
+                <div class="detail-card" data-aos="fade-left">
+                    <div class="icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Dress Code</h3>
+                    <p class="dress">Wear your favorite pastel shade and help the debutant shine by avoiding all shades of pink.</p>
+                    <div class="dots-grid">
+                        <span class="dot" style="background:#ffd3ac"></span>
+                        <span class="dot" style="background:#e2b330"></span>
+                        <span class="dot" style="background:#3eb489"></span>
+                        <span class="dot" style="background:#87ceeb"></span>
+                        <span class="dot" style="background:#b0de7f"></span>
+                        <span class="dot" style="background:#c8a2c8"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- GALLERY SECTION -->
+<section id="gallery" class="section">
+    <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">Memories in Bloom</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic1-_ZOEiM4w.JPG" alt="Photo 1" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic2-BxWn4hCP.JPG" alt="Photo 2" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic3-Ci0XwQRP.JPG" alt="Photo 3" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic4-DEVhwF3O.JPG" alt="Photo 4" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic5-DhCgBq_3.JPG" alt="Photo 5" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic6-Dp1HERxf.JPG" alt="Photo 6" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic7-BLX6vjdT.JPG" alt="Photo 7" class="gallery-img">
+            </div>
+            <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic8-BJk_6Hjt.JPG" alt="Photo 8" class="gallery-img">
+            </div>
+                <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic9-Drg0PI2g.JPG" alt="Photo 9" class="gallery-img">
+            </div>
+                <div class="gallery-item" data-aos="fade-up">
+                <img src="/assets/offpic10--EJnr-DV.JPG" alt="Photo 10" class="gallery-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- VENUE SECTION -->
+<section id="venue" class="section">
+    <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">Location</h2>
+        <div class="venue-layout">
+            <div class="venue-text" data-aos="fade-right">
+                <h3>De Guzman's Private Resort</h3>
+                <p>A magical setting surrounded by blooming roses, soft lighting, and elegant decor perfect for a debut celebration.</p>
+                <p class="address"><i class="fas fa-map-marker-alt"></i> Pulilan, Bulacan</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-outline">Get Directions</a>
+            </div>
+            
+            <!-- GOOGLE MAP iframe - PASTE YOUR EMBED CODE BELOW -->
+            <div class="venue-map" data-aos="fade-left">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sph!4v1779246558117!5m2!1sen!2sph!6m8!1m7!1sTD57OKMS7UdW4HvYMZiNLA!2m2!1d14.92680680058153!2d120.8441289751295!3f88.41511873657822!4f-1.1636075936139036!5f0.7820865974627469"
+                    width="100%" 
+                    height="350" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 18 ROSES SECTION -->
+<section id="roses" class="section">
+    <div class="container lights-border-box roses-lights-border">
+        <div class="lights-border-media">
+            <img src="/assets/offpic4-DEVhwF3O.JPG" alt="" aria-hidden="true">
+        </div>
+        <div class="lights-border-content">
+            <h2 class="section-heading" data-aos="fade-up"> 18 Petals of Enchanted Love</h2>
+            <p class="subtitle-text" data-aos="fade-up">An Enchanted Dance with the Men who hold a Special place in my heart and magical journey.</p>
+            <div class="roses-grid">
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Tatang Rizalino Catubay</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Bliss Euclid Ruiz</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Jairus Ramos</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Charlon Santos</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Ian Manapat</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Nashlee Serajosef</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Bench Oclaray</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Kemwel Oclaray</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Ezekiel Oclaray</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Joshua Manahan</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Kuya Jericho Manahan</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Tito Paul Buendia</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Tito Doods Ruiz</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Tatay Lito Manahan</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Tito Jv Villapando</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Ninong Ivan Buendia</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>Uncle Jess Catubay</p></div>
+                <div class="rose-card" data-aos="fade-up"><i class="fas fa-spa"></i><p>David Samuel Martinez</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="traditions" class="section">
+    <div class="container">
+        <h2 class="section-heading" data-aos="fade-up">18 Treasures of the Night</h2>
+
+        <!-- 18 Lights of Wishes -->
+        <div class="tradition-group lights-border-box" data-aos="fade-up">
+            <div class="lights-border-media">
+                <img src="/assets/lights-CkpT7jFT.JPG" alt="" aria-hidden="true">
+            </div>
+            <div class="lights-border-content">
+                <h3 class="tradition-title"><i class="fas fa-lightbulb"></i> 18 Lights of Wishes</h3>
+                <p class="tradition-desc">Guiding lights for a bright future</p>
+                <div class="tradition-grid">
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Ate Maureen Ruiz</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Ate Jeyaros Tayao</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Ate Shekaina Faith Villanueva</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Pauleen Vertulfo</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Mathea De Guzman</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Khim Tiongson</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Malia San Pedro</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Kleahh Castro</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Ate Nemie Manahan</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Shannah Liderato</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Bernadette Balucanag</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Myrtel Gabriel</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Unique Vinta</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Hannah Clemente</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Vennice Castro</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Jamila Catubay</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Daryn Cabarrubias</p></div>
+                    <div class="tradition-card"><i class="fas fa-fire"></i><p>Kate Julia Raval</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18 Gifts of Bloom -->
+        <div class="tradition-group lights-border-box" data-aos="fade-up">
+            <div class="lights-border-media">
+                <img src="/assets/giftspic-CCz1LoiP.JPG" alt="" aria-hidden="true">
+            </div>
+            <div class="lights-border-content">
+                <h3 class="tradition-title"><i class="fas fa-gift"></i> 18 Gifts of Bloom</h3>
+                <p class="tradition-desc">Gifts to celebrate new beginnings</p>
+                <div class="tradition-grid">
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Aizel Manibo</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Devionne Guevarra</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Shevette Orlanda</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Ruth Oclaray</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Arlene Ramos</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Charry Delos Reyes</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Tin Oclaray</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Apol Manahan</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Micah Pidlaon</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Sir Martin Villamin</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Amie Binas</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Cheena Garcia</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Faith Manapat</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Noimie Marasigan</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Ate Dulce Reduta</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Teacher Marie</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Teacher Ellen</p></div>
+                    <div class="tradition-card"><i class="fas fa-gift"></i><p>Mama Vangie Ruiz</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18 Enchanted Riches -->
+        <div class="tradition-group lights-border-box" data-aos="fade-up">
+            <div class="lights-border-media">
+                <img src="/assets/richespic-DegBSepY.JPG" alt="" aria-hidden="true">
+            </div>
+            <div class="lights-border-content">
+                <h3 class="tradition-title"><i class="fas fa-gem"></i> 18 Enchanted Riches</h3>
+                <p class="tradition-desc">Treasures of joy and prosperity</p>
+                <div class="tradition-grid">
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Teacher Leah</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Teacher Rica</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Sir Rowell Tamares</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Doc. Kelly De Leon</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Ate Rose Manansala</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Kuya Ced</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Sir Mervin Selmo</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tita Virgie Joson</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tito Eric Magtalas</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Teacher Mariz Magtalas</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Ate Cherry Cabildo</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Ninong Oliver Ramos</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tita Tessie Ilagan</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Ate Cathryn Pascual</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tito Leonilo Pascual</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tita Leony Tayao</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tita Flor Catubay</p></div>
+                    <div class="tradition-card"><i class="fas fa-gem"></i><p>Tita Mina Arceo</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+   
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3>Thank you for celebrating with Queenie</h3>
+            <div class="socials">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">© 2026 Queenie@18. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
+    <!-- FALLING CONFETTI FROM BOTTOM -->
+    <script>
+    // Create canvas
+    var confettiCanvas = document.createElement('canvas');
+    confettiCanvas.id = 'confetti-canvas';
+    confettiCanvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;';
+    document.body.appendChild(confettiCanvas);
+
+    var ctx = confettiCanvas.getContext('2d');
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+
+    // Confetti settings
+    var confettiPieces = [];
+    var colors = ['#d4af37', '#ff69b4', '#ffb6c1', '#831a56', '#e0bfb8', '#fff'];
+    
+    // Create confetti piece
+    function createPiece() {
+        return {
+            x: Math.random() * confettiCanvas.width,
+            y: confettiCanvas.height + Math.random() * 50,
+            size: Math.random() * 8 + 4,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            speedY: Math.random() * 1.5 + 0.5,
+            speedX: Math.random() * 2 - 1,
+            rotation: Math.random() * 360,
+            rotationSpeed: Math.random() * 6 - 3,
+            shape: Math.random() > 0.5 ? 'rect' : 'circle',
+            opacity: Math.random() * 0.6 + 0.4
+        };
+    }
+
+    // Create initial confetti
+    for (var i = 0; i < 80; i++) {
+        var piece = createPiece();
+        piece.y = Math.random() * confettiCanvas.height;
+        confettiPieces.push(piece);
+    }
+
+    // Animate
+    function animate() {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        
+        for (var i = 0; i < confettiPieces.length; i++) {
+            var p = confettiPieces[i];
+            
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation * Math.PI / 180);
+            ctx.globalAlpha = p.opacity;
+            ctx.fillStyle = p.color;
+            
+            if (p.shape === 'rect') {
+                ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+            } else {
+                ctx.beginPath();
+                ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            ctx.restore();
+            
+            // Move
+            p.y -= p.speedY;
+            p.x += p.speedX;
+            p.rotation += p.rotationSpeed;
+            
+            // Reset when off screen
+            if (p.y < -10) {
+                confettiPieces[i] = createPiece();
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Resize handler
+    window.addEventListener('resize', function() {
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+    });
+</script>
+</body>
+</html>
